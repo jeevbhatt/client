@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import API from "../http";
+import API from "../http/Api";
 import { IInitialTeacherData } from "@/lib/store/types";
 
 

@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { IUserInitialState } from "./types";
-import API from "../http";
+import API from "../http/Api";
 
 
 const userInitialState : IUserInitialState =  {
@@ -50,7 +50,7 @@ reducers --> kunai function jasko through bata hami kehi programmed
 //login user
 function registerUser(){
     return async function registerUserThunk() {
-        const response = await API.post("/user/register");
+        const response = await API.post("/auth/register");
         if(response.status === 200){
             console.log("User registered successfully");
         } else {
@@ -61,7 +61,7 @@ function registerUser(){
 
 function loginUser(){
     return async function loginUserThunk() {
-        const response = await API.post("/user/login");
+        const response = await API.post("/auth/login");
         if(response.status === 200){
             console.log("User logged in successfully");
         } else {
@@ -72,7 +72,7 @@ function loginUser(){
 
 function forgotPassword(){
     return async function forgotPasswordThunk() {
-        const response = await API.post("/user/forgot-password");
+        const response = await API.post("/auth/forgot-password");
         if(response.status === 200){
             console.log("Password reset email sent successfully");
         } else {

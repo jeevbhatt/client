@@ -5,11 +5,12 @@ import { loginUser } from "@/lib/store/auth/authSlice";
 import { useAppDispatch, useAppSelector } from "@/lib/store/hooks";
 import { Status } from "@/lib/types/type";
 import Image from "next/image";
+import Link from "next/link";
 
 function Login() {
   const dispatch = useAppDispatch();
   const { user } = useAppSelector((store) => store.auth); // subscribe
-  console.log(user, "Data user ma yo xaaaa !!!");
+  console.log(user, "Data user ma xaaaa !!!");
 
   // const {institute} = useAppSelector((store)=>store.institute)
   const [data, setData] = useState<ILoginData>({
@@ -29,11 +30,11 @@ function Login() {
     e.preventDefault();
     // api call
     dispatch(loginUser(data));
-    // if(status == Status.SUCCESS){
-    //   alert("Logged in success")
-    // }else if (status == Status.ERROR){
-    //   alert("Error happened")
-    // }
+    //if (status == Status.SUCCESS) {
+    //alert("Logged in success");
+    //} else if (status == Status.ERROR) {
+    //alert("Error happened");
+    //}
   };
   return (
     <div className="bg-gray-100 flex h-screen items-center justify-center px-4 sm:px-6 lg:px-8">
@@ -98,6 +99,15 @@ function Login() {
               >
                 Login Account
               </button>
+              <br />
+              <p className="text-blue-500">
+                Don&apos;t have an account? Register here
+              </p>
+              <Link href="/auth/register">
+                <button className="flex w-full justify-center rounded-md border border-transparent bg-green-500 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-opacity-75 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:ring-offset-2">
+                  Register Account
+                </button>
+              </Link>
             </div>
           </form>
         </div>

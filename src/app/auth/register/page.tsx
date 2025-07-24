@@ -5,17 +5,19 @@ import { registerUser } from "@/lib/store/auth/authSlice";
 import { useAppDispatch, useAppSelector } from "@/lib/store/hooks";
 import { Status } from "@/lib/types/type";
 import Image from "next/image";
+import Link from "next/link";
 
 // user le k k type garxa tw input field ma tyo track garera store garne
 
 function Register() {
   const dispatch = useAppDispatch();
-  // const {institute} = useAppSelector((store)=>store.institute)
-  // const {status} = useAppSelector((store)=>store.auth)
+  //const {institute} = useAppSelector((store)=>store.institute)
+  //const {status} = useAppSelector((store)=>store.auth)
   const [data, setData] = useState<IRegisterData>({
     username: "",
     email: "",
     password: "",
+    token: "",
   });
   // handling type garkeo kura
   const handleRegisterDataChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -30,9 +32,11 @@ function Register() {
     // api call
     e.preventDefault();
     dispatch(registerUser(data));
-    // if(status === Status.SUCCESS){
-
-    // }
+    if (status === Status.SUCCESS) {
+      alert("Registered successfully");
+    } else if (status === Status.ERROR) {
+      alert("Error occurred during registration");
+    }
   };
 
   return (
@@ -118,6 +122,14 @@ function Register() {
                 </button>
               </div>
             </form>
+            <br />
+            <div>
+              <Link href="/auth/login">
+                <button className="flex w-full justify-center rounded-md border border-transparent bg-green-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-opacity-75 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:ring-offset-2">
+                  Back to Login
+                </button>
+              </Link>
+            </div>
           </div>
         </div>
       </div>
