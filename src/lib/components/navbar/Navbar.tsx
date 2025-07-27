@@ -1,6 +1,5 @@
-import React from "react";
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 
 function Navbar() {
   return (
@@ -14,32 +13,22 @@ function Navbar() {
               style={{ color: "transparent" }}
               width={32}
               height={32}
-              alt="Logo"
+              alt="navbar"
             />
           </Link>
         </div>
-        {/* <ul className="hidden items-center justify-center gap-6 md:flex">
-      <li className="pt-1.5 font-dm text-sm font-medium text-slate-700">
-        <a href="#">Pricing</a>
-      </li>
-      <li className="pt-1.5 font-dm text-sm font-medium text-slate-700">
-        <a href="#">Blog</a>
-      </li>
-      <li className="pt-1.5 font-dm text-sm font-medium text-slate-700">
-        <a href="#">Docs</a>
-      </li>
-    </ul> */}
+
         <div className="flex-grow" />
         <div className="hidden items-center justify-center gap-6 md:flex">
           <a href="#" className="font-dm text-sm font-medium text-slate-700">
             Sign in
           </a>
-          <a
-            href="#"
+          <Link
+            href="institute/become"
             className="rounded-md bg-gradient-to-br from-green-600 to-emerald-400 px-3 py-1.5 font-dm text-sm font-medium text-white shadow-md shadow-green-400/50 transition-transform duration-200 ease-in-out hover:scale-[1.03]"
           >
             Become an Institute
-          </a>
+          </Link>
         </div>
         <div className="relative flex items-center justify-center md:hidden">
           <button type="button">

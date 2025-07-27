@@ -1,11 +1,10 @@
 "use client";
-
 import { useAppDispatch } from "@/lib/store/hooks";
 import { createInstitute } from "@/lib/store/institute/instituteSlice";
 import { IInstitute } from "@/lib/store/institute/instituteSlice.type";
 import { ChangeEvent, FormEvent, useState } from "react";
 
-function becomeInstitute() {
+function BecomeInstitute() {
   const dispatch = useAppDispatch();
   const [instituteData, setInstituteData] = useState<IInstitute>({
     instituteAddress: "",
@@ -128,4 +127,4 @@ function becomeInstitute() {
   );
 }
 
-export default becomeInstitute;
+export default BecomeInstitute;

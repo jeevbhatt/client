@@ -3,8 +3,7 @@ import { IInitialState, IRegisterData, IUserData } from "./authSlice.type";
 import { Status } from "@/lib/types/type";
 import { AppDispatch } from "../store";
 import { ILoginData } from "@/app/auth/login/login.types";
-import API from "@/lib/http/API";
-import APIWITHTOKEN from "@/lib/http/ApiWithToken";
+import API from "@/lib/http/Api";
 
 const initialState:IInitialState = {
     user : {
@@ -52,7 +51,7 @@ export function registerUser(data:IRegisterData){
 export function loginUser(data:ILoginData){
     return async function loginUserThunk(dispatch:AppDispatch){
         try {
-            const response = await APIWITHTOKEN.post("auth/login",data)
+            const response = await API.post("auth/login",data)
             if(response.status == 200){
                 /*
 data  : {

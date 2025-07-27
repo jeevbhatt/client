@@ -3,14 +3,12 @@ import { ChangeEvent, FormEvent, useState } from "react";
 import { ILoginData } from "./login.types";
 import { loginUser } from "@/lib/store/auth/authSlice";
 import { useAppDispatch, useAppSelector } from "@/lib/store/hooks";
-import { Status } from "@/lib/types/type";
 import Image from "next/image";
-import Link from "next/link";
 
 function Login() {
   const dispatch = useAppDispatch();
   const { user } = useAppSelector((store) => store.auth); // subscribe
-  console.log(user, "Data user ma xaaaa !!!");
+  console.log(user);
 
   // const {institute} = useAppSelector((store)=>store.institute)
   const [data, setData] = useState<ILoginData>({
@@ -30,11 +28,11 @@ function Login() {
     e.preventDefault();
     // api call
     dispatch(loginUser(data));
-    //if (status == Status.SUCCESS) {
-    //alert("Logged in success");
-    //} else if (status == Status.ERROR) {
-    //alert("Error happened");
-    //}
+    // if(status == Status.SUCCESS){
+    //   alert("Logged in success")
+    // }else if (status == Status.ERROR){
+    //   alert("Error happened")
+    // }
   };
   return (
     <div className="bg-gray-100 flex h-screen items-center justify-center px-4 sm:px-6 lg:px-8">
@@ -43,7 +41,7 @@ function Login() {
           <Image
             className="mx-auto h-12 w-auto"
             src="https://www.svgrepo.com/show/499664/user-happy.svg"
-            alt="User Happy"
+            alt="User Icon"
             width={48}
             height={48}
           />
@@ -99,17 +97,19 @@ function Login() {
               >
                 Login Account
               </button>
-              <br />
-              <p className="text-blue-500">
-                Don&apos;t have an account? Register here
-              </p>
-              <Link href="/auth/register">
-                <button className="flex w-full justify-center rounded-md border border-transparent bg-green-500 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-opacity-75 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:ring-offset-2">
-                  Register Account
-                </button>
-              </Link>
             </div>
           </form>
+          <div>
+            <p className="mt-2 text-center text-sm text-gray-600">
+              Don&apos;t have an account?{" "}
+              <a
+                href="/auth/register"
+                className="font-medium text-sky-400 hover:text-sky-500"
+              >
+                Sign up
+              </a>
+            </p>
+          </div>
         </div>
       </div>
     </div>

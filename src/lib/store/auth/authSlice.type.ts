@@ -2,8 +2,8 @@ import { Status } from "@/lib/types/type"
 
 
 export interface IUserData{
-    username : string,
-    token : string,
+    username : string, 
+    token : string, 
 }
 
 export interface IRegisterData extends IUserData{
@@ -11,6 +11,6 @@ export interface IRegisterData extends IUserData{
 }
 
 export interface IInitialState{
-  user : IUserData,
+  user : IUserData, 
   status : Status
 }
